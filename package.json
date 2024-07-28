@@ -1,0 +1,14 @@
+{
+  "name": "cdp-recruitment-javascript",
+  "version": "1.0.0",
+  "description": "javascript test",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Léonard CORRE",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
