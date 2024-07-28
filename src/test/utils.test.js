@@ -8,9 +8,12 @@ describe('Utils', () => {
   });
 
   test('parses valid arguments without value', () => {
-    const args = ['node', 'app.js', '--count'];
-    const result = Utils.parseArguments(args);
+    let args = ['node', 'app.js', '--count'];
+    let result = Utils.parseArguments(args);
     expect(result).toEqual({ command: '--count', value: null });
+    args[2] = '--filter='
+    result = Utils.parseArguments(args);
+    expect(result).toEqual({ command: '--filter', value: ''});
   });
 
   test('throws error for invalid arguments', () => {
@@ -27,9 +30,8 @@ describe('Utils', () => {
     }).toThrow('Argument non valide. Utilisez le format --commande ou --commande=valeur');
   });
 
-  test('throws error for invalid command format', () => {
-    expect(() => {
-      Utils.parseArguments(['node', 'app.js', '--filter']);
-    }).not.toThrow();
+  test('throws error for invalid arguments format', () => {
+    let args = ['node', 'app.js', '--filter'];
+    expect(() => Utils.parseArguments(args)).toThrow("Argument non complet")
   });
 });

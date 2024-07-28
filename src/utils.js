@@ -14,8 +14,9 @@ class Utils {
       [command, value] = commandArgs[0].split('=');
     } else if (commandArgs[0].includes("count")){
       [command, value] = [commandArgs[0],null];
-    } 
-
+    } else {
+      throw new Error('Argument non complet')
+    }
     return { command, value };
   }
 }

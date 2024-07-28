@@ -6,6 +6,7 @@ try {
   const args = Utils.parseArguments(process.argv);
   const { command, value } = args;
 
+
   if (command in commandMapper) {
     const result = commandMapper[command](data, value);
     if(result) {
